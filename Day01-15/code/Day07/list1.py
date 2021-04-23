@@ -33,6 +33,5 @@ def main():
     fruits.remove('apple')
     print(fruits)
 
-
 if __name__ == '__main__':
     main()

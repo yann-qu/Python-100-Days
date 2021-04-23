@@ -16,11 +16,13 @@ class Clock(object):
     # 因为Python中函数的参数没有类型而且支持缺省参数和可变参数
     # 用关键字参数让构造器可以传入任意多个参数来实现其他语言中的构造器重载
     def __init__(self, **kw):
-        if 'hour' in kw and 'minute' in kw and 'second' in kw:
+        #! 积累：传入任意多个参数时，如何提取每一个参数值
+        if 'hour' in kw and 'minute' in kw and 'second' in kw: # 判断传入的字典kw是否存在相应键值
             self._hour = kw['hour']
             self._minute = kw['minute']
             self._second = kw['second']
         else:
+            # 没有传入时间时，从系统获取时间
             tm = time.localtime(time.time())
             self._hour = tm.tm_hour
             self._minute = tm.tm_min

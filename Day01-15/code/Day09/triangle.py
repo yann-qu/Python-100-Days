@@ -19,6 +19,7 @@ class Triangle(object):
     # 静态方法
     @staticmethod
     def is_valid(a, b, c):
+        # 检查a,b,c能否组成一个三角形
         return a + b > c and b + c > a and c + a > b
 
     # 实例方法

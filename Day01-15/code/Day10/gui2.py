@@ -10,13 +10,19 @@ Date: 2018-03-14
 
 import tkinter
 
+global color_flag  # 记录棋子颜色。黑白子交替。
+color_flag = True
 
 def mouse_evt_handler(evt=None):
+    global color_flag
+    color_flag = not color_flag
     row = round((evt.y - 20) / 40)
     col = round((evt.x - 20) / 40)
     pos_x = 40 * col
     pos_y = 40 * row
-    canvas.create_oval(pos_x, pos_y, 40 + pos_x, 40 + pos_y, fill='black')
+
+    color = 'black' if color_flag else 'white'
+    canvas.create_oval(pos_x, pos_y, 40 + pos_x, 40 + pos_y, fill=color)
 
 
 top = tkinter.Tk()
